@@ -8,5 +8,16 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # db/seeds.rb
-#valid_product = Product.create(title: "Valid Product", price: 10.99, stock_quantity: 100)
-#invalid_product = Product.create(title: "", price: nil, stock_quantity: 50)
+# valid_product = Product.create(title: "Valid Product", price: 10.99, stock_quantity: 100)
+# invalid_product = Product.create(title: "", price: nil, stock_quantity: 50)
+
+require 'faker'
+
+676.times do
+  Product.create!(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Commerce.price,
+    stock_quantity: Faker::Number.between(from: 1, to: 100)
+  )
+end
