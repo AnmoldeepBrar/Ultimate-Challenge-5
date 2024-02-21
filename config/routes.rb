@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'details/show'
   get 'products/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :products, only: [:index, :show]
+  resource :product_details, only: [:show]
 end
